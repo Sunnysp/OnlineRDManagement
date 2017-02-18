@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PostmasterDashboard.master.cs" Inherits="PostmasterDashboard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+       <script type="text/javascript" src="Script/jquery-2.1.4.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body bgcolor="#eee">
+    
+    <form id="form1" runat="server">
+       <header>
+        <h1>Online RD Management System</h1>
+        <section>
+            <h3><iframe src="http://free.timeanddate.com/clock/i5l2q60k/n505/fs18/fc555" frameborder="0" width="118" height="24"></iframe>
+</h3>
+            <h4><iframe src="http://free.timeanddate.com/clock/i5l2q60k/n505/fc555/tt1" frameborder="0" width="203" height="18"></iframe>
+
+</h4>
+
+        </section>
+    </header>
+    <div class="nav-drawer">
+
+        <h3>My Dashboard</h3>
+        <asp:Button ID="Button1" runat="server" Text="LOGOUT" BackColor="#256AE6" ForeColor="White" Height="34px" Width="84px" />
+        <ul id="scroll">
+            <div class="force-overflow"></div>
+            <li><span>ACCOUNT DETAILS</span>
+                <ul>
+                    <li><a href="#">Add new account</a></li>
+                    <li><a href="#">Update account</a></li>
+                    <li><a href="#">View accounts</a></li>
+                    <li><a href="#">Delete account</a></li>
+
+                </ul>
+            </li>
+            <li><span>PAYMENT DETAILS</span>
+                <ul>
+                    <li><a href="#">Make payment</a></li>
+                    <li><a href="#">Check payment</a></li>
+                    <li><a href="#">Payment history</a></li>
+                    <li><a href="#">Check fine</a></li>
+                    <li><a href="#">Check due</a></li>
+                    <li><a href="#">Due history</a></li>
+                    <li><a href="#">Clear due</a></li>
+
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="search-bar">
+        <asp:TextBox ID="dropdown" runat="server" Text="Account Number"></asp:TextBox><i></i><br />
+        <ul>
+            <li>Account Number</li>
+            <li>Account Holder </li>
+        </ul>
+        <asp:TextBox ID="TextBox1" runat="server" placeholder="Search"></asp:TextBox>
+    </div>
+    <div>
+         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    </form>
+
+     <script type="text/javascript">
+     
+        $(document).ready(function () {
+          
+            $('#dropdown').click(function () {
+                $('.search-bar ul').css({ 'display': 'block' });
+            });
+            $('.search-bar ul li').click(function () {
+                var n = $(this).text();
+                $('#dropdown').val(n);
+                $('.search-bar ul').css({ 'display': 'none' });
+            });
+        });
+    </script>
+</body>
+</html>
